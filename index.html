@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>01.01.2026</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* --- CONFIGURAÇÕES GERAIS --- */
+:root {
+    --pink: #ff5fa2;
+}
+
+body {
+  background: #000;
+  color: var(--pink);
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+  
+  /* CURSOR DE CORAÇÃO ROSA */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill:%23ff5fa2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 16 16, auto;
+}
+
+/* --- ESTILOS DO LOGIN --- */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+input, button {
+  padding: 16px 36px;
+  border-radius: 40px;
+  border: none;
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input {
+  background: #111;
+  color: var(--pink);
+  outline: none;
+  border: 1px solid #333;
+  transition: 0.3s;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill:white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 16 16, text;
+}
+
+input:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 15px rgba(255, 95, 162, 0.2);
+}
+
+button {
+  background: var(--pink);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill:white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 16 16, pointer;
+}
+
+button:hover {
+  box-shadow: 0 0 30px rgba(255,95,162,.7);
+  transform: scale(1.05);
+}
+
+/* --- CONTAINER DE BLOQUEIO E CORAÇÃO --- */
+
+#bloqueio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.heart-svg {
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 15px rgba(255, 95, 162, 0.5));
+    /* Pulso leve */
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.romance-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 0 0 15px rgba(255, 95, 162, 0.5);
+    margin-bottom: 5px;
+}
+
+/* Estilo do Relógio */
+#contador {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: baseline;
+    background: rgba(17, 17, 17, 0.9);
+    padding: 25px 50px;
+    border-radius: 60px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.tempo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tempo-numero {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--pink);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.tempo-legenda {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.separador {
+    font-size: 30px;
+    color: #444;
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    50% { opacity: 0.2; }
+}
+
+#login-container {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .romance-text { font-size: 20px; padding: 0 20px; }
+    #contador { gap: 10px; padding: 15px 20px; }
+    .tempo-numero { font-size: 28px; }
+    .separador { font-size: 20px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="bloqueio-container">
+    
+    <svg class="heart-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="heartFill" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop id="fill-start" offset="0%" stop-color="#ff5fa2" />
+                <stop id="fill-end" offset="0%" stop-color="#222" />
+            </linearGradient>
+        </defs>
+        
+        <path fill="url(#heartFill)" stroke="#ff5fa2" stroke-width="1.5"
+              d="M50 88.9L44.8 84.2C26.4 67.5 14.2 56.5 14.2 43C14.2 32 22.8 23.4 33.8 23.4C40 23.4 46 26.3 50 31C54 26.3 60 23.4 66.2 23.4C77.2 23.4 85.8 32 85.8 43C85.8 56.5 73.6 67.5 55.2 84.2L50 88.9Z"/>
+    </svg>
+
+    <div class="romance-text">Contando cada batida para essa história</div>
+
+    <div id="contador">Carregando...</div>
+</div>
+
+<div id="login-container">
+  <h1>Essa história agora pode ser aberta.</h1>
+  <p id="digitando"></p>
+
+  <div id="login-box" style="display:none">
+    <input type="password" id="senha" placeholder="Senha">
+    <br>
+    <button onclick="entrar()">Entrar</button>
+  </div>
+</div>
+
+<script>
+// --- DATA FINAL DO PRESENTE ---
+const dataAlvo = new Date("2026-01-01T14:00:00").getTime();
+const dataInicioEnchimento = new Date("2025-12-20T00:00:00").getTime();
+
+// Elementos
+const bloqueioContainer = document.getElementById("bloqueio-container");
+const loginContainer = document.getElementById("login-container");
+const contadorEl = document.getElementById("contador");
+const fillStart = document.getElementById("fill-start");
+const fillEnd = document.getElementById("fill-end");
+
+// Variáveis Texto
+const texto = "Digite a senha para continuar";
+let i = 0;
+let textoAnimadoIniciado = false;
+
+function atualizarSistema() {
+    const agora = new Date().getTime();
+    const distancia = dataAlvo - agora;
+
+    if (distancia < 0) {
+        desbloquearPagina();
+        return;
+    }
+
+    // Relógio
+    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    const d = dias < 10 ? "0" + dias : dias;
+    const h = horas < 10 ? "0" + horas : horas;
+    const m = minutos < 10 ? "0" + minutos : minutos;
+    const s = segundos < 10 ? "0" + segundos : segundos;
+
+    contadorEl.innerHTML = `
+        <div class="tempo-box"><span class="tempo-numero">${d}</span><span class="tempo-legenda">Dias</span></div>
+        <div class="tempo-box"><span class="separador">:</span></div>
+        <div class="tempo-box"><span class="tempo-numero">${h}</span><span class="tempo-legenda">Horas</span></div>
+        <div class="tempo-box"><span class="separador">:</span></div>
+        <div class="tempo-box"><span class="tempo-numero">${m}</span><span class="tempo-legenda">Min</span></div>
+        <div class="tempo-box"><span class="separador">:</span></div>
+        <div class="tempo-box"><span class="tempo-numero">${s}</span><span class="tempo-legenda">Seg</span></div>
+    `;
+
+    // Enchimento Reto
+    let porcentagem = 0;
+    if (agora < dataInicioEnchimento) {
+        porcentagem = 0;
+    } else {
+        const tempoTotal = dataAlvo - dataInicioEnchimento;
+        const tempoPassado = agora - dataInicioEnchimento;
+        porcentagem = (tempoPassado / tempoTotal) * 100;
+        if (porcentagem > 100) porcentagem = 100;
+    }
+
+    // Aplica o gradiente reto (os dois pontos ficam na mesma %)
+    fillStart.setAttribute("offset", porcentagem + "%");
+    fillEnd.setAttribute("offset", porcentagem + "%");
+}
+
+function desbloquearPagina() {
+    bloqueioContainer.style.display = "none";
+    loginContainer.style.display = "block";
+    
+    if (!textoAnimadoIniciado) {
+        textoAnimadoIniciado = true;
+        digitar();
+    }
+}
+
+// --- FUNÇÕES DE LOGIN ---
+function digitar(){
+  if(i < texto.length){
+    document.getElementById("digitando").innerHTML += texto[i];
+    i++;
+    setTimeout(digitar, 70);
+  }else{
+    document.getElementById("login-box").style.display = "block";
+  }
+}
+
+function entrar(){
+  const senhaInput = document.getElementById("senha");
+  // SENHA: "amor" (ou outra que você definir, aqui mantive o que você tinha ou sugeri)
+  // No seu código anterior era "onomatopeia", se quiser mudar para "amor" avise.
+  if(senhaInput.value.toLowerCase() === "amor" || senhaInput.value.toLowerCase() === "onomatopeia"){
+    window.location.href = "historia.html";
+  }else{
+    senhaInput.style.border = "1px solid red";
+    senhaInput.animate([
+        { transform: 'translateX(0)' },
+        { transform: 'translateX(-10px)' },
+        { transform: 'translateX(10px)' },
+        { transform: 'translateX(0)' }
+    ], { duration: 300 });
+    
+    setTimeout(() => senhaInput.style.border = "1px solid #333", 1000);
+  }
+}
+
+setInterval(atualizarSistema, 1000);
+atualizarSistema();
+
+</script>
+
+</body>
+</html>
